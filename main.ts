@@ -282,7 +282,7 @@ let mySprite2 = sprites.create(img`
     . . . . . . . . . . . . . . . . 
     . . . . . . . . . . . . . . . . 
     `, SpriteKind.Enemy)
-tiles.placeOnRandomTile(mySprite2, sprites.castle.tileDarkGrass2)
+tiles.placeOnRandomTile(mySprite2, sprites.dungeon.darkGroundNorthWest0)
 animation.runImageAnimation(
 mySprite2,
 [img`
@@ -322,7 +322,7 @@ mySprite2,
 100,
 true
 )
-mySprite2.follow(mySprite, 85)
+mySprite2.follow(mySprite, 60)
 let mysprite3 = sprites.create(img`
     . . . . . . . . . . . . . . . . 
     . . . . . . . . . . . . . . . . 
@@ -381,7 +381,7 @@ mysprite3,
 100,
 true
 )
-mysprite3.follow(mySprite, 85)
+mysprite3.follow(mySprite, 60)
 let mysprite4 = sprites.create(img`
     . . . . . . . . . . . . . . . . 
     . . . . . . . . . . . . . . . . 
@@ -440,5 +440,5 @@ mysprite4,
 100,
 true
 )
-mysprite4.follow(mySprite, 85)
+mysprite4.follow(mySprite, 60)
 game.splash("Watch out for the spiders and you'll reach the treasure.")
