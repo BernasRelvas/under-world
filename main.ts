@@ -441,4 +441,63 @@ mysprite4,
 true
 )
 mysprite4.follow(mySprite, 60)
+let mysprite5 = sprites.create(img`
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    `, SpriteKind.Enemy)
+tiles.placeOnRandomTile(mysprite5, sprites.dungeon.darkGroundNorthEast0)
+animation.runImageAnimation(
+mysprite5,
+[img`
+    . . . b . . b . . . 
+    b . . b . . b . . b 
+    c b . b f f b . b c 
+    . c 2 b b b b 2 c . 
+    . . 2 2 b b 2 2 . . 
+    b b b b b b b b b b 
+    . . b b b b b b . . 
+    . . b b b b b b . . 
+    . b c . . . . c b . 
+    b c . . . . . . c b 
+    `,img`
+    . . . b . . b . . b 
+    b . . b . . b . b c 
+    c b . b f f b . c . 
+    . c 2 b b b b 2 . . 
+    . . 2 2 b b 2 2 . . 
+    b b b b b b b b b b 
+    . . b b b b b b . . 
+    . b b b b b b b . . 
+    b c . . . . . c b . 
+    c . . . . . . . c b 
+    `,img`
+    b . . b . . b . . . 
+    c b . b . . b . . b 
+    . c . b f f b . b c 
+    . . 2 b b b b 2 c . 
+    . . 2 2 b b 2 2 . . 
+    b b b b b b b b b b 
+    . . b b b b b b . . 
+    . . b b b b b b b . 
+    . b c . . . . . c b 
+    b c . . . . . . . c 
+    `],
+100,
+true
+)
+mysprite5.follow(mySprite, 60)
 game.splash("Watch out for the spiders and you'll reach the treasure.")
