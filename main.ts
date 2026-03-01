@@ -14,17 +14,17 @@ controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
         7 5 7 . . . . . . . . 
         7 7 5 . . . . . . . . 
         `,img`
-        . . . . . f 7 f . . . 
-        . . . . . f 7 1 . . . 
-        . . . . . f 7 7 . . . 
-        . . . . . 7 f 7 . . . 
-        . . . . . . 7 7 5 . . 
-        . . . . . . . 5 7 7 . 
-        . . . . . . . 7 5 7 . 
-        . . . . . . 7 7 5 . . 
-        . . . . . 5 7 7 . . . 
-        . . . . . 7 5 7 . . . 
-        . . . . . 7 7 5 . . . 
+        f 7 f . . . . . . . . 
+        f 7 1 . . . . . . . . 
+        f 7 7 . . . . . . . . 
+        7 f 7 . . . . . . . . 
+        . 7 7 5 . . . . . . . 
+        . . 5 7 7 . . . . . . 
+        . . 7 5 7 . . . . . . 
+        . 7 7 5 . . . . . . . 
+        5 7 7 . . . . . . . . 
+        7 5 7 . . . . . . . . 
+        7 7 5 . . . . . . . . 
         `],
     350,
     true
@@ -59,10 +59,20 @@ controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
         . . . . . . . . . . . 
         . . . . . . . . . . . 
         . . . . . . . . . . . 
+        . . . . . . . . . . . 
+        . . . . . . . . . . . 
+        . . . . . . . . . . . 
+        . . . . . . . . . . . 
+        . . . . . . . . . . . 
         5 7 7 5 7 7 5 7 7 1 f 
         7 5 7 7 5 7 7 f 7 7 7 
         7 7 5 7 7 5 7 7 f f f 
         `,img`
+        . . . . . . . . . . . 
+        . . . . . . . . . . . 
+        . . . . . . . . . . . 
+        . . . . . . . . . . . 
+        . . . . . . . . . . . 
         . . . . . . . . . . . 
         . . . . 7 7 . . . . . 
         . . . 5 5 7 5 . . . . 
@@ -78,40 +88,33 @@ controller.down.onEvent(ControllerButtonEvent.Pressed, function () {
     animation.runImageAnimation(
     mySprite,
     [img`
-        . . . 5 7 7 . . . . . 
-        . . . 7 5 7 . . . . . 
-        . . . 7 7 5 . . . . . 
-        . . . 5 7 7 . . . . . 
-        . . . 7 5 7 . . . . . 
-        . . . 7 7 5 . . . . . 
-        . . . 5 7 7 . . . . . 
-        . . . 7 f 7 . . . . . 
-        . . . 7 7 f . . . . . 
-        . . . 1 7 f . . . . . 
-        . . . f 7 f . . . . . 
+        . . . . . . . . 5 7 7 
+        . . . . . . . . 7 5 7 
+        . . . . . . . . 7 7 5 
+        . . . . . . . . 5 7 7 
+        . . . . . . . . 7 5 7 
+        . . . . . . . . 7 7 5 
+        . . . . . . . . 5 7 7 
+        . . . . . . . . 7 f 7 
+        . . . . . . . . 7 7 f 
+        . . . . . . . . 1 7 f 
+        . . . . . . . . f 7 f 
         `,img`
-        . . . 5 7 7 . . . . . 
-        . . . 7 5 7 . . . . . 
-        . . . 7 7 5 . . . . . 
-        . . 5 7 7 . . . . . . 
-        . 7 5 7 . . . . . . . 
-        . 7 7 5 . . . . . . . 
-        . . 5 7 7 . . . . . . 
-        . . . 7 f 7 . . . . . 
-        . . . 7 7 f . . . . . 
-        . . . 1 7 f . . . . . 
-        . . . f 7 f . . . . . 
+        . . . . . . . . 5 7 7 
+        . . . . . . . . 7 5 7 
+        . . . . . . . . 7 7 5 
+        . . . . . . . 5 7 7 . 
+        . . . . . . 7 5 7 . . 
+        . . . . . . 7 7 5 . . 
+        . . . . . . . 5 7 7 . 
+        . . . . . . . . 7 f 7 
+        . . . . . . . . 7 7 f 
+        . . . . . . . . 1 7 f 
+        . . . . . . . . f 7 f 
         `],
     350,
     true
     )
-})
-scene.onOverlapTile(SpriteKind.Player, assets.tile`transparency16`, function (sprite, location) {
-    game.gameOver(true)
-    game.setGameOverEffect(true, effects.confetti)
-})
-sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {
-    game.gameOver(false)
 })
 let mySprite: Sprite = null
 mySprite = sprites.create(img`
