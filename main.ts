@@ -37,10 +37,20 @@ controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
         . . . . . . . . . . . 
         . . . . . . . . . . . 
         . . . . . . . . . . . 
+        . . . . . . . . . . . 
+        . . . . . . . . . . . 
+        . . . . . . . . . . . 
+        . . . . . . . . . . . 
+        . . . . . . . . . . . 
         f 1 7 7 5 7 7 5 7 7 5 
         7 7 7 f 7 7 5 7 7 5 7 
         f f f 7 7 5 7 7 5 7 7 
         `,img`
+        . . . . . . . . . . . 
+        . . . . . . . . . . . 
+        . . . . . . . . . . . 
+        . . . . . . . . . . . 
+        . . . . . . . . . . . 
         . . . . . . . . . . . 
         . . . . . 7 7 . . . . 
         . . . . 5 7 5 5 . . . 
@@ -51,6 +61,9 @@ controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
     350,
     true
     )
+})
+scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.chestClosed, function (sprite, location) {
+    game.gameOver(true)
 })
 controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
     animation.runImageAnimation(
@@ -115,6 +128,9 @@ controller.down.onEvent(ControllerButtonEvent.Pressed, function () {
     350,
     true
     )
+})
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {
+    game.gameOver(false)
 })
 let mySprite: Sprite = null
 mySprite = sprites.create(img`
@@ -366,4 +382,63 @@ mysprite3,
 true
 )
 mysprite3.follow(mySprite, 85)
+let mysprite4 = sprites.create(img`
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    `, SpriteKind.Enemy)
+tiles.placeOnRandomTile(mysprite4, sprites.dungeon.darkGroundNorthEast1)
+animation.runImageAnimation(
+mysprite4,
+[img`
+    . . . b . . b . . . 
+    b . . b . . b . . b 
+    c b . b f f b . b c 
+    . c 2 b b b b 2 c . 
+    . . 2 2 b b 2 2 . . 
+    b b b b b b b b b b 
+    . . b b b b b b . . 
+    . . b b b b b b . . 
+    . b c . . . . c b . 
+    b c . . . . . . c b 
+    `,img`
+    . . . b . . b . . b 
+    b . . b . . b . b c 
+    c b . b f f b . c . 
+    . c 2 b b b b 2 . . 
+    . . 2 2 b b 2 2 . . 
+    b b b b b b b b b b 
+    . . b b b b b b . . 
+    . b b b b b b b . . 
+    b c . . . . . c b . 
+    c . . . . . . . c b 
+    `,img`
+    b . . b . . b . . . 
+    c b . b . . b . . b 
+    . c . b f f b . b c 
+    . . 2 b b b b 2 c . 
+    . . 2 2 b b 2 2 . . 
+    b b b b b b b b b b 
+    . . b b b b b b . . 
+    . . b b b b b b b . 
+    . b c . . . . . c b 
+    b c . . . . . . . c 
+    `],
+100,
+true
+)
+mysprite4.follow(mySprite, 85)
 game.splash("Watch out for the spiders and you'll reach the treasure.")
